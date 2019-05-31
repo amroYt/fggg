@@ -34,7 +34,7 @@ client.on('message', async msg =>{
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(prefix.length)
 
-    if(command === +ping) {
+    if(command === -ping) {
     let embed = new Discord.RichEmbed()
     .setColor(3447003)
     .setTitle("Pong!!")
@@ -100,7 +100,7 @@ client.on('message', async msg => {
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(prefix.length)
 
-	if (command === `play`) {
+	if (command === -play`) {
 		const voiceChannel = msg.member.voiceChannel;
         
         if (!voiceChannel) return msg.channel.send("انت لم تدخل روم صوتي");
@@ -180,7 +180,7 @@ client.on('message', async msg => {
             
         }
         
-	} else if (command === +skip) {
+	} else if (command === -skip) {
 
 		if (!msg.member.voiceChannel) return msg.channel.send("يجب ان تكون في روم صوتي");
         if (!serverQueue) return msg.channel.send("ليست هناك اغاني ليتم التخطي");
@@ -188,7 +188,7 @@ client.on('message', async msg => {
 		serverQueue.connection.dispatcher.end('تم تخطي الاغنية');
         return undefined;
         
-	} else if (command === +stop) {
+	} else if (command === -stop) {
 
 		if (!msg.member.voiceChannel) return msg.channel.send("يجب ان تكون في روم صوتي");
         if (!serverQueue) return msg.channel.send("There is no Queue to stop!!");
@@ -208,14 +208,14 @@ client.on('message', async msg => {
         
         return msg.channel.send(`درجة الصوت الان**${args[1]}**`);
 
-	} else if (command === `np`) {
+	} else if (command === -np) {
 
 		if (!serverQueue) return msg.channel.send('There is no Queue!');
 		const embedNP = new Discord.RichEmbed()
 	    .setDescription(`Now playing **${serverQueue.songs[0].title}**`)
         return msg.channel.sendEmbed(embedNP);
         
-	} else if (command === `queue`) {
+	} else if (command === -queue`) {
 		
 		if (!serverQueue) return msg.channel.send('There is no Queue!!');
 		let index = 0;
